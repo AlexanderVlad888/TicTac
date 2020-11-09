@@ -1,0 +1,140 @@
+package tictactoe;
+
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        /*System.out.println("X O X");
+        System.out.println("O X O");
+        System.out.println("X X O");*/
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter cells:");
+        String xo = scanner.nextLine();
+        //int n = 9;
+        //char[] xox = new char[n];
+        
+        // Первый вариант
+        /*String xox = xo.substring(0, 3);
+        System.out.println("---------");
+        System.out.println("| " + xo.substring(0, 1) + " " + xo.substring(1, 2) + " " + xo.substring(2, 3) + " |");
+        System.out.println("| " + xo.substring(3, 4) + " " + xo.substring(4, 5) + " " + xo.substring(5, 6) + " |");
+        System.out.println("| " + xo.substring(6, 7) + " " + xo.substring(7, 8) + " " + xo.substring(8, 9) + " |");
+        System.out.println("---------");*/
+        
+        char[][] f = new char[3][3];
+        for (int i = 0; i < xo.length(); i++) {
+            f[i/3][i%3] = xo.charAt(i);
+        }
+        System.out.println("---------");
+        for (int i = 0; i < xo.length() / 3; i++) {
+            System.out.print("| ");
+            for (int j = 0; j < xo.length() / 3; j++) {
+                System.out.print(f[i][j] + " ");
+            } 
+            System.out.println("|");
+            
+        } System.out.println("---------");
+        
+        //проверка Состояния
+        /*int xwin = 0;
+        int owin = 0;
+        for (int i = 0; i < xo.length() / 3; i++) {
+                if (f[0][i] == 'X' && f[1][i] == 'X' && f[2][i] == 'X') {
+                    //System.out.print("X wins");
+                    xwin++;
+                } else if (f[i][0] == 'X' && f[i][1] == 'X' && f[i][2] == 'X') {
+                    //System.out.print("X wins");
+                     xwin++;
+                } else if (f[0][i] == 'O' && f[1][i] == 'O' && f[2][i] == 'O') {
+                    //System.out.print("O wins");
+                    owin++;
+                } else if (f[i][0] == 'O' && f[i][1] == 'O' && f[i][2] == 'O') {
+                    //System.out.print("O wins");
+                    owin++;
+                }
+            } 
+            if (xwin > 0 && owin > 0) {
+                System.out.print("Impossible");
+                return;
+            } else if (xwin > 0 && owin == 0) {
+                System.out.print("X wins");
+                return;
+            } else if (xwin == 0 && owin > 0) {
+                System.out.print("O wins");
+                return;
+            } 
+            
+        
+        if (f[0][0] == 'X' && f[1][1] == 'X' && f[2][2] == 'X') {
+            System.out.print("X wins");
+            
+        } else if (f[2][0] == 'X' && f[1][1] == 'X' && f[0][2] == 'X') {
+            System.out.print("X wins");
+            return;
+        } else if (f[0][0] == 'O' && f[1][1] == 'O' && f[2][2] == 'O') {
+            System.out.print("O wins");
+            
+        } else if (f[2][0] == 'O' && f[1][1] == 'O' && f[0][2] == 'O') {
+            System.out.print("O wins");
+        }
+        int xs = 0;
+        int os = 0;
+        for (int i = 0; i < xo.length() / 3; i++) {
+            for (int j = 0; j < xo.length() / 3; j++) {
+                if (f[i][j] == 'X') {
+                    xs++;
+                } else if (f[i][j] == 'O') {
+                    os++;
+                }
+                
+            } 
+            System.out.println();
+        }
+        if (xs + os == 9) {
+            System.out.print("Draw");
+        }   else if (Math.abs(xs-os) > 1) {
+            System.out.print("Impossible");
+        } else  {
+            System.out.print("Game not finished");
+        }*/
+        //System.out.println();
+        
+        System.out.print("Enter the coordinates:");
+        int x = scanner.nextInt();
+        int y = scanner.nextInt();
+
+        System.out.println(x + " " + y);
+        if (x > 3 || y > 3) {
+            System.out.println("Coordinates should be from 1 to 3!");
+            x = scanner.nextInt();
+            y = scanner.nextInt();
+        }
+        if (f[3 - y][x - 1] == 'X' || f[3 - y][x - 1] =='O') {
+            System.out.println("This cell is occupied! Choose another one!");
+            x = scanner.nextInt();
+            y = scanner.nextInt();
+        }
+        if (f[3 - y][x - 1] == 'X' || f[3 - y][x - 1] =='O') {
+            System.out.println("This cell is occupied! Choose another one!");
+            x = scanner.nextInt();
+            y = scanner.nextInt();
+        }
+        if (f[3 - y][x - 1] == 'X' || f[3 - y][x - 1] =='O') {
+            System.out.println("This cell is occupied! Choose another one!");
+            x = scanner.nextInt();
+            y = scanner.nextInt();
+        }
+        
+        
+        f[3 - y][x - 1] = 'X';
+        System.out.println("---------");
+        for (int i = 0; i < xo.length() / 3; i++) {
+            System.out.print("| ");
+            for (int j = 0; j < xo.length() / 3; j++) {
+                System.out.print(f[i][j] + " ");
+            } 
+            System.out.println("|");
+            
+        } System.out.println("---------");
+        
+    }
+}
